@@ -9,8 +9,7 @@ def main():
     elif operation == 1:
         present_of_future()
     elif operation == 2:
-        #     TODO: finish this operation
-        print("feature under development")
+        present_of_future_inflation()
     elif operation == 3:
         future_of_present()
     elif operation == 4:
@@ -42,10 +41,29 @@ def present_of_future():
     main()
 
 
+def present_of_future_inflation():
+    future_value = get_future_value()
+    go_back_if_none(future_value)
+    interest_rate = get_interest_rate()
+    go_back_if_none(interest_rate)
+    periods = get_num_periods()
+    go_back_if_none(periods)
+    inflation = get_inflation()
+    go_back_if_none(inflation)
+    present_value = calculate_value.future_to_present_inflation(future_value, interest_rate, periods, inflation)
+    print("The present value of ", future_value, " is ", present_value)
+    main()
+
+
 def go_back_if_none(test_value):
     if test_value is None:
         main()
         exit(0)
+
+
+def get_inflation():
+    print("please enter the inflation that you expect over this period")
+    return get_float_input()
 
 
 def get_num_periods():
