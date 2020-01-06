@@ -2,6 +2,17 @@ import sys
 
 import calculate_value
 
+'''
+    print("press 0 to exit the program")
+    print("press 1 to calculate the present value of a future amount")
+    print("press 2 to calculate the future value of a present amount")
+    print("press 3 to calculate the future value of an annuity")
+    print("press 4 to calculate an annuity from a future amount")
+    print("press 5 to calculate the present value of an annuity")
+    print("press 6 to calculate an annuity from a present amount")
+    print("press 7 to calculate a geometric series from an annuity")
+    '''
+
 
 def main():
     operation = get_type_of_calculation()
@@ -10,31 +21,43 @@ def main():
     elif operation == 1:
         present_of_future()
     elif operation == 2:
-        present_of_future_inflation()
-    elif operation == 3:
         future_of_present()
+    elif operation == 3:
+        future_of_annuity()
     elif operation == 4:
-        future_of_present_inflation()
+        annuity_of_future()
     elif operation == 5:
         present_of_annuity()
     elif operation == 6:
-        present_of_annuity_inflation()
+        annuity_of_present()
+    elif operation == 7:
+        geometric_of_annuity()
     else:
         print("This value is not recognized. Please try again \n")
         main()
 
 
-def present_of_annuity_inflation():
+def geometric_of_annuity():
+    print("feature under development")
+#     TODO: FINISH FEATURE
+
+
+def annuity_of_present():
+    print("feature under development")
+#     TODO: FINISH FEATURE
+
+
+def annuity_of_future():
+    print("feature under development")
+#     TODO: FINISH FEATURE
+
+
+def future_of_annuity():
     print("feature under development")
 #     TODO: FINISH FEATURE
 
 
 def present_of_annuity():
-    print("feature under development")
-#     TODO: FINISH FEATURE
-
-
-def future_of_present_inflation():
     print("feature under development")
 #     TODO: FINISH FEATURE
 
@@ -46,7 +69,9 @@ def future_of_present():
     go_back_if_none(interest_rate)
     periods = get_num_periods()
     go_back_if_none(periods)
-    future_value = calculate_value.present_to_future(present_value, interest_rate, periods)
+    inflation = get_inflation()
+    go_back_if_none(inflation)
+    future_value = calculate_value.present_to_future(present_value, interest_rate, periods, inflation)
     print("the future value of ", present_value, " is ", future_value)
     main()
 
@@ -58,21 +83,9 @@ def present_of_future():
     go_back_if_none(interest_rate)
     periods = get_num_periods()
     go_back_if_none(periods)
-    present_value = calculate_value.future_to_present(future_value, interest_rate, periods)
-    print("The present value of ", future_value, " is ", present_value)
-    main()
-
-
-def present_of_future_inflation():
-    future_value = get_future_value()
-    go_back_if_none(future_value)
-    interest_rate = get_interest_rate()
-    go_back_if_none(interest_rate)
-    periods = get_num_periods()
-    go_back_if_none(periods)
     inflation = get_inflation()
     go_back_if_none(inflation)
-    present_value = calculate_value.future_to_present_inflation(future_value, interest_rate, periods, inflation)
+    present_value = calculate_value.future_to_present(future_value, interest_rate, periods, inflation)
     print("The present value of ", future_value, " is ", present_value)
     main()
 
@@ -135,11 +148,12 @@ def get_float_input():
 def get_type_of_calculation():
     print("press 0 to exit the program")
     print("press 1 to calculate the present value of a future amount")
-    print("press 2 to calculate the present value of a future amount with inflation")
-    print("press 3 to calculate the the future value of a present amount")
-    print("press 4 to calculate the the future value of a present amount with inflation")
+    print("press 2 to calculate the future value of a present amount")
+    print("press 3 to calculate the future value of an annuity")
+    print("press 4 to calculate an annuity from a future amount")
     print("press 5 to calculate the present value of an annuity")
-    print("press 6 to calculate the present value of an annuity with inflation")
+    print("press 6 to calculate an annuity from a present amount")
+    print("press 7 to calculate a geometric series from an annuity")
 
     user_input = sys.stdin.readline()
     try:
