@@ -1,4 +1,5 @@
 import sys
+
 import calculate_value
 
 
@@ -13,8 +14,29 @@ def main():
     elif operation == 3:
         future_of_present()
     elif operation == 4:
-        #         TODO: finish this operation
-        print("feature under development")
+        future_of_present_inflation()
+    elif operation == 5:
+        present_of_annuity()
+    elif operation == 6:
+        present_of_annuity_inflation()
+    else:
+        print("This value is not recognized. Please try again \n")
+        main()
+
+
+def present_of_annuity_inflation():
+    print("feature under development")
+#     TODO: FINISH FEATURE
+
+
+def present_of_annuity():
+    print("feature under development")
+#     TODO: FINISH FEATURE
+
+
+def future_of_present_inflation():
+    print("feature under development")
+#     TODO: FINISH FEATURE
 
 
 def future_of_present():
