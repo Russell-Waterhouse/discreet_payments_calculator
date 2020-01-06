@@ -40,26 +40,54 @@ def main():
 def geometric_of_annuity():
     print("feature under development")
 #     TODO: FINISH FEATURE
+    main()
 
 
 def annuity_of_present():
+    #     TODO: FINISH FEATURE
     print("feature under development")
-#     TODO: FINISH FEATURE
+    main()
 
 
 def annuity_of_future():
-    print("feature under development")
-#     TODO: FINISH FEATURE
+    future_value = get_future_value()
+    go_back_if_none(future_value)
+    interest_rate = get_interest_rate()
+    go_back_if_none(interest_rate)
+    periods = get_num_periods()
+    go_back_if_none(periods)
+    inflation = get_inflation()
+    go_back_if_none(inflation)
+    annuity = calculate_value.future_to_annuity(future_value, interest_rate, periods, inflation)
+    print("The annuity of the future amount ", future_value, " is ", annuity)
+    main()
 
 
 def future_of_annuity():
-    print("feature under development")
-#     TODO: FINISH FEATURE
+    annuity = get_annuity_value()
+    go_back_if_none(annuity)
+    periods = get_num_periods()
+    go_back_if_none(periods)
+    interest_rate = get_interest_rate()
+    go_back_if_none(interest_rate)
+    inflation_rate = get_inflation()
+    future_value = calculate_value.annuity_to_future(annuity, interest_rate, periods, inflation_rate)
+    print("the future value of ", annuity, " annuity for ", periods, " periods is ", future_value)
+    main()
 
 
 def present_of_annuity():
-    print("feature under development")
-#     TODO: FINISH FEATURE
+    annuity = get_annuity_value()
+    go_back_if_none(annuity)
+    periods = get_num_periods()
+    go_back_if_none(periods)
+    interest_rate = get_interest_rate()
+    go_back_if_none(interest_rate)
+    inflation_rate = get_inflation()
+    go_back_if_none(inflation_rate)
+    present_value = calculate_value.annuity_to_present(annuity, interest_rate, periods, inflation_rate)
+    print("the present value of ", annuity, " annuity for ", periods, " periods is ", present_value)
+    main()
 
 
 def future_of_present():
@@ -96,13 +124,19 @@ def go_back_if_none(test_value):
         exit(0)
 
 
+def get_annuity_value():
+    print("please enter the annuity value for this period or 'b' to go back")
+    return get_int_input()
+
+
 def get_inflation():
-    print("please enter the inflation that you expect over this period")
+    print("please enter the inflation that you expect over this period or 'b' to go back")
     return get_float_input()
 
 
 def get_num_periods():
-    print("Please enter the number of periods between the present time and the future time in question")
+    print("Please enter the number of periods between the present time and the future time in question\n"
+          "alternatively, enter 'b' to go back")
     return get_int_input()
 
 
