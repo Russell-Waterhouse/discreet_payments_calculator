@@ -35,8 +35,16 @@ def main():
 
 
 def annuity_of_present():
-    #     TODO: FINISH FEATURE
-    print("feature under development")
+    present_value = get_present_value()
+    go_back_if_none(present_value)
+    interest = get_interest_rate()
+    go_back_if_none(interest)
+    periods = get_num_periods()
+    go_back_if_none(periods)
+    inflation = get_inflation()
+    go_back_if_none(inflation)
+    annuity = calculate_value.present_to_annuity(present_value, interest, periods, inflation)
+    print("the annuity of the present amount ", present_value, " is ", annuity)
     main()
 
 
