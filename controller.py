@@ -10,7 +10,6 @@ import calculate_value
     print("press 4 to calculate an annuity from a future amount")
     print("press 5 to calculate the present value of an annuity")
     print("press 6 to calculate an annuity from a present amount")
-    print("press 7 to calculate a geometric series from an annuity")
     '''
 
 
@@ -30,17 +29,9 @@ def main():
         present_of_annuity()
     elif operation == 6:
         annuity_of_present()
-    elif operation == 7:
-        geometric_of_annuity()
     else:
         print("This value is not recognized. Please try again \n")
         main()
-
-
-def geometric_of_annuity():
-    print("feature under development")
-#     TODO: FINISH FEATURE
-    main()
 
 
 def annuity_of_present():
@@ -187,7 +178,6 @@ def get_type_of_calculation():
     print("press 4 to calculate an annuity from a future amount")
     print("press 5 to calculate the present value of an annuity")
     print("press 6 to calculate an annuity from a present amount")
-    print("press 7 to calculate a geometric series from an annuity")
 
     user_input = sys.stdin.readline()
     try:
